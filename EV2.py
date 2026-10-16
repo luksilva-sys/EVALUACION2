@@ -2,7 +2,7 @@ import requests
 import urllib.parse
 
 route_url = "https://graphhopper.com/api/1/route?"
-key = "fc141ccb-37fa-4230-b359-94514cbf11a5"  # Reemplazar con clave personal
+key = "fc141ccb-37fa-4230-b359-94514cbf11a5"
 
 def geocoding(location, key):
     while location == "":
@@ -112,7 +112,7 @@ while True:
             for each in range(len(paths_data["paths"][0]["instructions"])):
                 path = paths_data["paths"][0]["instructions"][each]["text"]
                 distance = paths_data["paths"][0]["instructions"][each]["distance"]
-                print("{0} ( {:.2f} km / {:.2f} millas )".format(path, distance / 1000, (distance / 1000) / 1.61))
+                print(f"{path} ( {distance / 1000:.2f} km / {(distance / 1000) / 1.61:.2f} millas )")
             print("=================================================")
         else:
             print("Mensaje de error: " + paths_data.get("message", "No se encontró una conexión entre las ubicaciones."))
